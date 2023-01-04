@@ -32,7 +32,7 @@ Step 4: Deploy the webapp service:
 kubectl apply -f k8s/webapp
 ```
 
-<span style="color:red">**NOTE**</span>: The webapp service must be meshed with Linkerd using the `linkerd.io/inject: enabled` annotation.
+<span class="noteStrong">**NOTE**</span>: The webapp service must be meshed with Linkerd using the `linkerd.io/inject: enabled` annotation.
 
 Step 5: Deploy Locust:
 
@@ -120,3 +120,10 @@ Step 9: Watch the canary deployment progress:
 ```bash
 watch kubectl get canaries --all-namespaces
 ```
+
+<style>
+.noteStrong {
+  color: #f00;
+  font-weight: bold;
+}
+<style>

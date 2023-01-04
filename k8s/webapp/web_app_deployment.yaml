@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: hungtpplay/webapp:1.0.3
+          image: hungtpplay/webapp:1.0.5
           ports:
             - name: webapp
               containerPort: 3000

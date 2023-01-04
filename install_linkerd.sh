@@ -10,7 +10,7 @@ else
 fi
 curl -sL https://linkerd.github.io/linkerd-smi/install | sh
 
-linkerd smi install | kubectl apply -f -
 linkerd install --crds | kubectl apply -f -
 linkerd install | kubectl apply -f -
 linkerd viz install | kubectl apply -f -
+linkerd smi install | kubectl apply -f -

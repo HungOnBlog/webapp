@@ -120,10 +120,3 @@ Step 9: Watch the canary deployment progress:
 ```bash
 watch kubectl get canaries --all-namespaces
 ```
-
-<style>
-.noteStrong {
-  color: #f00;
-  font-weight: bold;
-}
-<style>

@@ -1,0 +1,33 @@
+# apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust-worker
+  labels:
+    name: locust-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: locust-worker
+  template:
+    metadata:
+      labels:
+        app: locust-worker
+    spec:
+      containers:
+        - name: locust-worker
+          image: locust:guestbook
+          env:
+            - name: LOCUST_MODE
+              value: worker
+            - name: LOCUST_MASTER_URL
+              value: locust-master
+            - name: TARGET_HOST
+              value: "http://webapp"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"

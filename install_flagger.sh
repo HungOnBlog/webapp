@@ -1,0 +1,1 @@
+kubectl apply -k github.com/fluxcd/flagger//kustomize/linkerd

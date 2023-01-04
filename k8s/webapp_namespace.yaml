@@ -1,0 +1,8 @@
+# Create new namespace in k8s cluster
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: webapp
+  annotations: 
+    name: webapp
+    linkerd.io/inject: enabled

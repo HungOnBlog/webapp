@@ -7,6 +7,7 @@ metadata:
   labels:
     app: locust-load-test
   annotations:
+    name: locust-load-test
     linkerd.io/inject: enabled
 spec:
   replicas: 1

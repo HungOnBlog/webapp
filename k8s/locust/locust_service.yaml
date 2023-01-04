@@ -2,8 +2,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: locust-master
+  namespace: webapp
   labels:
     app: locust-master
+  annotations:
+    linkerd.io/inject: enabled
 spec:
   ports:
     - port: 5557
@@ -22,8 +25,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: locust-master-ui
+  namespace: webapp
   labels:
     app: locust-master
+  annotations:
+    linkerd.io/inject: enabled
 spec:
   ports:
     - port: 8089

@@ -1,9 +1,13 @@
-# apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: locust-worker
+  namespace: webapp
   labels:
     name: locust-worker
+  annotations:
+    name: locust-worker
+    linkerd.io/inject: enabled
 spec:
   replicas: 3
   selector:
@@ -16,7 +20,7 @@ spec:
     spec:
       containers:
         - name: locust-worker
-          image: locust:guestbook
+          image: hungttplay/webapp-locust
           env:
             - name: LOCUST_MODE
               value: worker

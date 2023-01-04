@@ -38,6 +38,7 @@ Step 5: Deploy Locust:
 
 ```bash
 kubectl apply -f k8s/locust
+kubectl port-forward -n webapp service/locust-master-ui 30627:8089
 ```
 
 Step 5.1: Create traffic to the webapp
@@ -46,6 +47,8 @@ Open the Locust UI at <http://localhost:30627> and start a 5 minute test with 2 
 And choose 100 concurrent users and 100 spawn rate.
 
 Then, click the `Start swarming` button.
+
+Open new `terminal`
 
 Step 6: Create `Canary` custom resource:
 

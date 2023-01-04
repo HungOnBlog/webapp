@@ -5,8 +5,6 @@ metadata:
   namespace: webapp
   labels:
     app: locust-master
-  annotations:
-    linkerd.io/inject: enabled
 spec:
   ports:
     - port: 5557
@@ -28,8 +26,6 @@ metadata:
   namespace: webapp
   labels:
     app: locust-master
-  annotations:
-    linkerd.io/inject: enabled
 spec:
   ports:
     - port: 8089

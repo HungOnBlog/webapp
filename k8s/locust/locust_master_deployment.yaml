@@ -2,31 +2,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: locust-load-test
+  name: locust-master
   namespace: webapp
   labels:
-    app: locust-load-test
+    app: locust-master
   annotations:
-    name: locust-load-test
+    name: locust-master
     linkerd.io/inject: enabled
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: locust-load-test
+      app: locust-master
   template:
     metadata:
       labels:
-        app: locust-load-test
+        app: locust-master
     spec:
       containers:
-        - name: locust-load-test
+        - name: locust-master
           image: hungtpplay/webapp-locust
           env:
             - name: LOCUST_MODE
               value: master
             - name: TARGET_HOST
-              value: "http://webapp"
+              value: "http://webapp:3000"
           ports:
             - name: loc-master-web
               containerPort: 8089

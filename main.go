@@ -12,14 +12,20 @@ func main() {
 	})
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
+		return c.JSON(fiber.Map{
+			"path":    "/",
+			"message": "OK",
+		})
 	})
 
 	app.Get("/long", func(c *fiber.Ctx) error {
 		for i := 0; i < 10000; i++ {
 			fmt.Println(i)
 		}
-		return c.SendString("Hello, World!")
+		return c.JSON(fiber.Map{
+			"path":    "/long",
+			"message": "OK",
+		})
 	})
 
 	app.Listen(":3000")

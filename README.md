@@ -32,7 +32,7 @@ Step 4: Deploy the webapp service:
 kubectl apply -f k8s/webapp
 ```
 
-<span class="noteStrong">**NOTE**</span>: The webapp service must be meshed with Linkerd using the `linkerd.io/inject: enabled` annotation.
+**NOTE**: The webapp service must be meshed with Linkerd using the `linkerd.io/inject: enabled` annotation.
 
 Step 5: Deploy Locust:
 

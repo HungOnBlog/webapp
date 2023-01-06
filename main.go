@@ -28,5 +28,20 @@ func main() {
 		})
 	})
 
+	app.Post("/relay", func(c *fiber.Ctx) error {
+		body := new(struct {
+			Number int `json:"number"`
+		})
+
+		if err := c.BodyParser(body); err != nil {
+			return err
+		}
+		return c.JSON(fiber.Map{
+			"path":    "/relay",
+			"message": "OK",
+			"number":  body.Number,
+		})
+	})
+
 	app.Listen(":3000")
 }

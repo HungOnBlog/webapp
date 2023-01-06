@@ -43,5 +43,39 @@ func main() {
 		})
 	})
 
+	app.Post("/add", func(c *fiber.Ctx) error {
+		body := new(struct {
+			Number int `json:"number"`
+			Adder  int `json:"adder"`
+		})
+
+		if err := c.BodyParser(body); err != nil {
+			return err
+		}
+
+		return c.JSON(fiber.Map{
+			"path":    "/add",
+			"message": "OK",
+			"result":  body.Number + body.Adder,
+		})
+	})
+
+	app.Put("/update", func(c *fiber.Ctx) error {
+		body := new(struct {
+			Number  int `json:"number"`
+			Updater int `json:"updater"`
+		})
+
+		if err := c.BodyParser(body); err != nil {
+			return err
+		}
+
+		return c.JSON(fiber.Map{
+			"path":    "/update",
+			"message": "OK",
+			"result":  body.Number + body.Updater,
+		})
+	})
+
 	app.Listen(":3000")
 }
